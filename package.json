@@ -10,7 +10,9 @@
     "famous"
   ],
   "scripts": {
-    "test": "npm run lint -s",
+    "test": "npm run tap-tests && npm run lint -s",
+    "tap-tests": "testling '' | tap-spec",
+    "watch-tests": "nodemon --ignore node_modules/ -e js,json --exec 'npm run tap-test'",
     "lint-eslint": "eslint src/",
     "lint-jscs": "jscs src/",
     "lint": "npm run lint-eslint && npm run lint-jscs",
@@ -122,6 +124,16 @@
     "transform": [
       "cssify",
       "deamdify"
+    ]
+  },
+  "testling": {
+    "files": [
+      "tests/src/**/**.spec.js"
+    ],
+    "scripts": [
+      "tests/helpers/bind-polyfill.js",
+      "tests/helpers/rAf-polyfill.js",
+      "tests/helpers/MouseEvent-polyfill.js"
     ]
   }
 }
