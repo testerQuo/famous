@@ -21,11 +21,7 @@
     "build-global-min": "famous-dist-generator src dist/famous-global.min.js --minify",
     "build-common": "famous-dist-generator src/ dist/common --common",
     "build-css": "famous-dist-generator src/ dist/ --css ",
-    "build-docs": "famous-doc-generator --base src/ --out docs/ --createIndex",
-    "build-examples": "famous-examples-generator -i ./examples"
-  },
-  "authors": [
-    "Adam Cmiel <adam@famo.us>",
+    "build-docs": "famous-doc-generator -
     "Adnan Wahab <mail@adnanwahab.com>",
     "Adrian Rossouw <adrian@daemon.co.za>",
     "Alex McLeod <alxmcleod@gmail.com>",
