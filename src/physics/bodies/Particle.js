@@ -41,6 +41,7 @@ define(function(require, exports, module) {
         this._engine = null;
         this._isSleeping = true;
         this._eventOutput = null;
+        this._immune = options.immune;
 
         // set scalars
         this.mass = (options.mass !== undefined)
@@ -61,7 +62,6 @@ define(function(require, exports, module) {
             size : [true, true],
             target : {
                 transform : this.transform,
-                origin : [0.5, 0.5],
                 target : null
             }
         };
@@ -242,6 +242,26 @@ define(function(require, exports, module) {
     };
 
     /**
+     * Basic setter function for immunity status
+     *
+     * @method setImmunity
+     * @param status {Boolean}
+     */
+    Particle.prototype.setImmunity = function setImmunity(status) {
+        this._immune = status;
+    };
+
+    /**
+     * Basic getter function for immunity status
+     *
+     * @method getImmunity
+     * @return status {Boolean}
+     */
+    Particle.prototype.getImmunity = function getImmunity() {
+        return this._immune;
+    };
+
+    /**
      * Reset position and velocity
      *
      * @method reset
@@ -284,7 +304,7 @@ define(function(require, exports, module) {
      * @param dt {Number} Time differential
      */
     Particle.prototype.integrateVelocity = function integrateVelocity(dt) {
-        Integrator.integrateVelocity(this, dt);
+        if (!this._immune) Integrator.integrateVelocity(this, dt);
     };
 
     /**
@@ -294,7 +314,7 @@ define(function(require, exports, module) {
      * @param dt {Number} Time differential
      */
     Particle.prototype.integratePosition = function integratePosition(dt) {
-        Integrator.integratePosition(this, dt);
+        if (!this._immune) Integrator.integratePosition(this, dt);
     };
 
     /**

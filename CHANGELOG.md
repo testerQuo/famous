@@ -4,12 +4,7 @@
 
 - Update .gitignore
 - Update copyright year
-- Update linter
-- update distribution generator
-- Fix broken links to http://famo.us
-
-### Bug Fixes
-
+- Update li
 - Famous/core
     - Fix container memory leak on migration
 
