@@ -2,7 +2,7 @@
 
 ### General
 
-- Update .gitignore
+- Update `.gitignore`
 - Update copyright year
 - Update li
 - Famous/core
