@@ -1,4 +1,4 @@
-# Contributing to Famo.us
+# Contributing to Famous
 
 Active involvement from the community is essential to help make Famo.us the most
 capable and performant front-end JavaScript framework out there. You can help by
